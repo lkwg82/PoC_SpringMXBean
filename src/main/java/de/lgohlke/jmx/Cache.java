@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * User: lars
  */
 @Component
-@ManagedResource(objectName = "mbeans:name=myJmxDemoBean", description = "s")
+@ManagedResource(description = "s")
 public class Cache {
   private String serverName2= "x";
 

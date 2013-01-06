@@ -1,20 +1,21 @@
 package de.lgohlke.jmx;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableMBeanExport;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * User: lars
  */
-@ComponentScan(basePackages = "de.lgohlke.jmx")
 @Configuration
-@EnableMBeanExport
+// workaround for Spring <3.2
+@ImportResource("classpath:mbeans.xml")
+// since Spring >= 3.2
+//@EnableMBeanExport
 public class CachingConfig {
 
-           @Bean
-           public String x(){
-             return           "";
-           }
+  @Bean
+  public Cache c() {
+    return new Cache();
+  }
 }
